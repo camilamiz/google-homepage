@@ -1,70 +1,81 @@
+html {
+  height: 100%;
+}
+
 body {
   font-family: Arial, sans-serif;
   font-size: 13px;
-  width: 100%;
-  height: 100%;
-  margin:0;
+  min-height: 100%;
 }
 
 .grid-container {
   display: grid;
-  width: 100vw;
+  grid-auto-flow: row;
   height: 100vh;
-  grid-auto-columns: minmax(100px; auto);
   grid-template-areas:
     "navbar"
-    "middle"
-    "footer-1st-line"
-    "footer-2nd-line";
-  grid-template-columns: 1fr;
+    "content"
+    "footer";
+}
+
+.footer {
+  grid-area: footer;
+  position: relative;
+  width: 100%;
+  top: 0px;
+}
+
+.line {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.navbar {
+  grid-area: navbar;
+  position:relative;
+  top: 20px;
+  right: 40px;
 }
 
 ul {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
   float: right;
 }
 
 li {
   display: inline-block;
   float: left;
-  line-height: 24px;
-  vertical-align: middle;
-  padding: 15px 7px
+  padding-left: 15px;
+  height: 30px;
+  line-height: 30px;
 }
 
-.middle {
+.content {
+  margin: 0 auto;
+  padding-bottom: 0;
+  text-align: center;
   position: relative;
-}
-
-.center {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.right {
-  float: right;
-}
-
-.left {
-  float: left;
+  top: 50px;
 }
 
 input[type="submit"] {
-  background-color: rgba(63, 121, 191, 0.85);
+  background-color: rgba(50, 130, 200, 0.9);
   color: white;
   border: none;
-  padding: 7px 13px;
+  padding: 6px 13px;
   border-radius: 2px;
+  font-weight: 500;
 }
 
 input[type="search"] {
-  width: 540px;
-  border-radius: 0px;
-  padding: 11px;
-  border-color: rgba(0, 0, 0, 0.1);
-  box-shadow: -3px 3px rgba(0, 0, 0, 0.1);
+  width: 600px;
+  border-radius: 1px;
+  padding: 15px 15px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: -5px 3px 5px rgba(0, 0, 0, 0.07);
+  margin: 0 auto;
 }
 
 a:link, a:visited {
@@ -75,4 +86,37 @@ a:link, a:visited {
 a:hover {
   color: rgba(0, 0, 0, 0.75);
   text-decoration: underline;
+}
+
+input[type="button"]{
+  background-color: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.5);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+input[type="button"]:hover{
+  color: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 9px 14px;
+  box-shadow: -0.5px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.buttons-area {
+  margin: 15px auto;
+}
+
+span a {
+  padding: 0 5px;
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
 }
